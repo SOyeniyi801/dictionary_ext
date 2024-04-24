@@ -1,0 +1,10 @@
+{
+    "name": "Dictionary", 
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Extension to define words quickly", 
+    " action": {
+        "default_icon": "dictionary.png",
+        "default_popup": "public/index.html"
+    }
+}
