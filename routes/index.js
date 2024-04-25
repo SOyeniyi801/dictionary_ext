@@ -27,9 +27,40 @@ router.get("/:word", async (req, res) => {
     } catch {
         res.status(500).json({error: error.message})
     }
-  
+  });
 
- 
-});
+  router.get("/:word/synonyms", async(req, res) => {
+    try {
+        const word = req.params.word;
+        const options ={ 
+            headers: {
+                [API_KEY_NAME]: API_KEY_VALUE,
+                [API_KEY_HOST_NAME]: API_KEY_HOST_VALUE
+            }
+        }
+        const apiRes = await needle('get', `${API_BASE_URL}/${word}/synonyms`, options)
+    const data =  apiRes.body
+    res.status(200).json(data)
+    }catch {
+        res.status(500).json({error: error.message})
+    }
+})
+
+router.get("/:word/antonyms", async(req, res) => {
+    try {
+        const word = req.params.word;
+        const options ={ 
+            headers: {
+                [API_KEY_NAME]: API_KEY_VALUE,
+                [API_KEY_HOST_NAME]: API_KEY_HOST_VALUE
+            }
+        }
+        const apiRes = await needle('get', `${API_BASE_URL}/${word}/antonyms`, options)
+    const data =  apiRes.body
+    res.status(200).json(data)
+    }catch {
+        res.status(500).json({error: error.message})
+    }
+})
 
 module.exports = router;
