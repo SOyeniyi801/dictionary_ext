@@ -1,9 +1,28 @@
 const button = document.getElementById("button");
-button.addEventListener("click", async () => {
-  const word = document.getElementById("word").value;
-  console.log(word);
+const wordInput = document.getElementById("word")
 
-  const getDefinition = async () => {
+
+button.addEventListener("click", async () => {
+    const word = wordInput.value
+  fetchData(word)
+  wordInput.value = ''
+});
+
+wordInput.addEventListener("keypress", async (event) => {
+    if (event.key === 'Enter') {
+        const word = wordInput.value
+      fetchData(word);
+      wordInput.value = ''
+    }
+  });
+
+  const fetchData = async (word) => {
+    await getDefinition(word);
+    await getSynonyms(word);
+    await getAntonyms(word);
+  };
+
+const getDefinition = async (word) => {
     try {
       const url = `/api/${word}`;
       const response = await fetch(url, {
@@ -31,7 +50,7 @@ button.addEventListener("click", async () => {
     } catch {}
   };
 
-  const getSynonyms = async () => {
+  const getSynonyms = async (word) => {
     try {
         const url = `/api/${word}/synonyms`
         const response = await fetch(url, {
@@ -63,7 +82,7 @@ button.addEventListener("click", async () => {
     }
   }
 
-  const getAntonyms = async () => {
+  const getAntonyms = async (word) => {
     try {
         const url = `/api/${word}/antonyms`
         const response = await fetch(url, {
@@ -94,7 +113,4 @@ button.addEventListener("click", async () => {
 
     }
   }
-  getDefinition();
-  getSynonyms();
-  getAntonyms();
-});
+ 
