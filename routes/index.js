@@ -13,7 +13,6 @@ const API_KEY_HOST_VALUE = process.env.API_KEY_HOST_VALUE
 
 router.get("/:word", async (req, res) => {
     try{
-        
         const word = req.params.word;
         const options = {
             headers: {

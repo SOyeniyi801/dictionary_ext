@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Dictionary</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Define That Word</h1>
 
-    <h3>Glasses</h3>
+    <label for="word">Enter a word:</label>
+    <input type="text" id="word" />
+    <button type="button" id="button">Define</button>
     <p>pronunciation:</p>
-    <div><p>'ɡlæsʌz</p></div>
+    <div id="pronunciation"><p>'ɡlæsʌz</p></div>
     <p>Definition:</p>
     <ul>
-        <li>(plural) optical instrument consisting of a frame that holds a pair of lenses for correcting defective vision</li>
+      <li id="definition">
+        (plural) optical instrument consisting of a frame that holds a pair of
+        lenses for correcting defective vision
+      </li>
     </ul>
     <p>Synonyms:</p>
     <ul>
-        <li>eyeglasses</li>
+      <li id="synonyms">eyeglasses</li>
     </ul>
 
-</body>
+  </body>
+  <script src="main.js"></script>
 </html>
