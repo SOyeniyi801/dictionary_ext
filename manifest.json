@@ -3,7 +3,14 @@
     "version": "1.0",
     "manifest_version": 3,
     "description": "Extension to define words quickly", 
-    " action": {
+    "host_permissions": [
+        "https://wordsapiv1.p.rapidapi.com/*",
+        "http://localhost:3000/*"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' http://localhost:3000; object-src 'self'"
+      },
+    "action": {
         "default_icon": "dictionary.png",
         "default_popup": "public/index.html"
     }

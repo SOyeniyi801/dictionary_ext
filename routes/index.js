@@ -1,5 +1,4 @@
 const { error } = require("console");
-// const url = require('url')
 const express = require("express");
 const router = express.Router();
 const needle = require('needle')
@@ -25,7 +24,7 @@ router.get("/:word", async (req, res) => {
         const data =  apiRes.body
         res.status(200).json(data)
     } catch {
-        res.status(500).json({error: error.message})
+        res.status(404).json({error: "No matching word was found"})
     }
   });
 
@@ -42,7 +41,7 @@ router.get("/:word", async (req, res) => {
     const data =  apiRes.body
     res.status(200).json(data)
     }catch {
-        res.status(500).json({error: error.message})
+        res.status(404).json({error: "No matching word was found"})
     }
 })
 
@@ -59,7 +58,7 @@ router.get("/:word/antonyms", async(req, res) => {
     const data =  apiRes.body
     res.status(200).json(data)
     }catch {
-        res.status(500).json({error: error.message})
+        res.status(404).json({error: "No matching word was found"})
     }
 })
 

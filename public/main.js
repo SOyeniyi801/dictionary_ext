@@ -24,7 +24,7 @@ wordInput.addEventListener("keypress", async (event) => {
 
 const getDefinition = async (word) => {
     try {
-      const url = `/api/${word}`;
+      const url = `http://localhost:3000/api/${word}`;
       const response = await fetch(url, {
         headers: {
           "Content-Type": "application/json",
@@ -32,11 +32,12 @@ const getDefinition = async (word) => {
       });
       const data = await response.json();
 
+
       const wordDisplay = document.getElementById('wordDisplay')
       wordDisplay.innerHTML = word
 
       const pronunciationDisplay = document.getElementById('pronunciation')
-      pronunciationDisplay.innerHTML = data.pronunciation.all
+      pronunciationDisplay.innerHTML = data.pronunciation.all || data.pronunciation
 
       const definitionsList = document.getElementById('definition')
       definitionsList.innerHTML = ""
@@ -47,12 +48,14 @@ const getDefinition = async (word) => {
         definitionsList.appendChild(li)
       });
       console.log(data);
-    } catch {}
+    } catch(error) {
+      console.log(error.message)
+    }
   };
 
   const getSynonyms = async (word) => {
     try {
-        const url = `/api/${word}/synonyms`
+        const url = `http://localhost:3000/api/${word}/synonyms`
         const response = await fetch(url, {
             headers: {
                 "Content-Type": "application/json",
@@ -75,16 +78,14 @@ const getDefinition = async (word) => {
             console.log(data)
         }
 
-        
-
-    } catch {
-
+    } catch(error) {
+      console.log(error.message)
     }
   }
 
   const getAntonyms = async (word) => {
     try {
-        const url = `/api/${word}/antonyms`
+        const url = `http://localhost:3000/api/${word}/antonyms`
         const response = await fetch(url, {
             headers: {
                 "Content-Type": "application/json",
@@ -109,8 +110,8 @@ const getDefinition = async (word) => {
 
         
 
-    } catch {
-
+    } catch(error) {
+      console.log(error.message)
     }
   }
  
