@@ -13,7 +13,7 @@ This is a dictionary Chrome extension that allows users to define words quickly.
 1. Clone this repository to your local machine.
 2. Get an API key from [RapidAPI Words API](https://rapidapi.com/dpventures/api/wordsapi).
 3. Create a `.env` file in the root directory of the project.
-4. Copy the contents of `.env.example` into `.env` and replace `YOUR_API_KEY_HERE` with your actual API key.
+4. Copy the contents of `.env.example` into `.env` and replace `API_KEY_VALUE` with your actual API key.
 5. Run `npm install` to install dependencies.
 6. Start the local server by running `npm start`.
 7. Open Google Chrome and navigate to `chrome://extensions/`.
