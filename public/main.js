@@ -14,6 +14,7 @@ wordInput.addEventListener("keypress", async (event) => {
         const word = wordInput.value
       fetchData(word);
       wordInput.value = ''
+      document.querySelector('.main-container').style.display = 'block'
     }
   });
 
