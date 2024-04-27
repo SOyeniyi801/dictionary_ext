@@ -6,6 +6,7 @@ button.addEventListener("click", async () => {
     const word = wordInput.value
   fetchData(word)
   wordInput.value = ''
+  document.querySelector('.main-container').style.display = 'block'
 });
 
 wordInput.addEventListener("keypress", async (event) => {
@@ -41,8 +42,9 @@ wordInput.addEventListener("keypress", async (event) => {
         wordDisplay.innerHTML = word;
 
         const pronunciationDisplay = document.getElementById('pronunciation');
-        if(data.pronunciation?.all || data.pronunciation === undefined){
+        if(data.pronunciation  === undefined ){
           pronunciationDisplay.innerHTML = "Word not found"
+          console.log(data.pronunciation)
         } else {
           pronunciationDisplay.innerHTML = data.pronunciation?.all || data.pronunciation;
         }
