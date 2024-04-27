@@ -23,8 +23,8 @@ router.get("/:word", async (req, res) => {
         const apiRes = await needle('get', `${API_BASE_URL}/${word}`, options)
         const data =  apiRes.body
         res.status(200).json(data)
-    } catch {
-        res.status(404).json({error: "No matching word was found"})
+    } catch (error) {
+        console.log(error.message); 
     }
   });
 
@@ -41,7 +41,7 @@ router.get("/:word", async (req, res) => {
     const data =  apiRes.body
     res.status(200).json(data)
     }catch {
-        res.status(404).json({error: "No matching word was found"})
+        
     }
 })
 
@@ -58,7 +58,7 @@ router.get("/:word/antonyms", async(req, res) => {
     const data =  apiRes.body
     res.status(200).json(data)
     }catch {
-        res.status(404).json({error: "No matching word was found"})
+        
     }
 })
 
